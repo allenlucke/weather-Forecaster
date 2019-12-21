@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App.js';
 import registerServiceWorker from './registerServiceWorker';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 // Provider allows us to use redux within our react app
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
@@ -12,37 +12,40 @@ import createSagaMiddleware from 'redux-saga';
 
 //Imports Sagas from rootSaga
 import rootSaga from './redux/sagas/_root.saga';
+//Imports Reducers from rootReducer
+import rootReducer from './redux/reducers/_root.reducer';
 
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
-// Used to store movies returned from the server
-const movies = (state = [], action) => {
-    switch (action.type) {
-        case 'SET_MOVIES':
-            return action.payload;
-        default:
-            return state;
-    }
-}
+// // Used to store movies returned from the server
+// const getHomePage = (state = [], action) => {
+//     switch (action.type) {
+//         case 'SET_HOMEPAGE':
+//             return action.payload;
+//         default:
+//             return state;
+//     }
+// }
 
-// Used to store the movie genres
-const genres = (state = [], action) => {
-    switch (action.type) {
-        case 'SET_GENRES':
-            return action.payload;
-        default:
-            return state;
-    }
-}
+// // Used to store the movie details
+// const getDetails = (state = [], action) => {
+//     switch (action.type) {
+//         case 'SET_DETAILS':
+//             return action.payload;
+//         default:
+//             return state;
+//     }
+// }
 
 // Create one store that all components can use
 const storeInstance = createStore(
-    combineReducers({
-        movies,
-        genres,
-    }),
+    rootReducer,
+    // combineReducers({
+    //     getHomePage,
+    //     getDetails,
+    // }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
 );
