@@ -14,7 +14,7 @@ class HomePage extends Component {
     }
 
     render() {
-        const movieList = this.props.reduxState.HomePage.map((item, index) => {
+        const movieList = this.props.reduxState.getHomePageReducer.map((item, index) => {
             return (
                 <div key={index}>
                     <img src={item.poster} alt="Poster"/>
