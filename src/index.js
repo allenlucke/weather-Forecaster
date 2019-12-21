@@ -10,10 +10,9 @@ import logger from 'redux-logger';
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
 
-// Create the rootSaga generator function
-function* rootSaga() {
+//Imports Sagas from rootSaga
+import rootSaga from './redux/sagas/_root.saga';
 
-}
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
