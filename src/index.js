@@ -16,9 +16,14 @@ import rootSaga from './redux/sagas/_root.saga';
 import rootReducer from './redux/reducers/_root.reducer';
 
 
+
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
+
+// const middlewareList = process.env.NODE_ENV = 'development' ?
+//     [sagaMiddleware, logger] :
+//     [sagaMiddleware];
 // // Used to store movies returned from the server
 // const getHomePage = (state = [], action) => {
 //     switch (action.type) {
@@ -52,6 +57,7 @@ const storeInstance = createStore(
 
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
+
 
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, 
     document.getElementById('root'));
