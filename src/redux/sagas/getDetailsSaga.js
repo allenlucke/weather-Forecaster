@@ -1,12 +1,13 @@
 import axios from 'axios';
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest, actionChannel } from 'redux-saga/effects';
 
-function* getDetails() {
+function* getDetails(action) {
     console.log(`In getDetails`);
+    console.log()
     try {
         const response = yield axios({
             method: 'GET',
-            url: '/movies/details'
+            url: '/movies/details/' + action.payload,
         });
         yield put({
             type: 'SET_DETAILS',

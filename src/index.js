@@ -21,28 +21,7 @@ import rootReducer from './redux/reducers/_root.reducer';
 const sagaMiddleware = createSagaMiddleware();
 
 
-// const middlewareList = process.env.NODE_ENV = 'development' ?
-//     [sagaMiddleware, logger] :
-//     [sagaMiddleware];
-// // Used to store movies returned from the server
-// const getHomePage = (state = [], action) => {
-//     switch (action.type) {
-//         case 'SET_HOMEPAGE':
-//             return action.payload;
-//         default:
-//             return state;
-//     }
-// }
 
-// // Used to store the movie details
-// const getDetails = (state = [], action) => {
-//     switch (action.type) {
-//         case 'SET_DETAILS':
-//             return action.payload;
-//         default:
-//             return state;
-//     }
-// }
 
 // Create one store that all components can use
 const storeInstance = createStore(
