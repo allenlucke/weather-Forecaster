@@ -23,12 +23,24 @@ class Edit extends Component {
     }
 
     editTitle = (event, inputKey) => {
-            event.preventDefault();
-            this.props.dispatch({
-                type: 'PUT_TITLE',
-                payload: this.state
-            })
-        }
+        event.preventDefault();
+        this.props.dispatch({
+            type: 'PUT_TITLE',
+            payload: this.state
+        })
+        this.props.dispatch({
+            type: 'GET_DETAILS',
+            payload: this.state.id
+        })
+        this.props.history.push('/details/')
+    }
+    cancelEdit = (event) => {
+        this.props.dispatch({
+            type: 'GET_DETAILS',
+            payload: this.state.id
+        })
+        this.props.history.push('/details/')
+    }        
     render () {
 
         return (
@@ -42,6 +54,7 @@ class Edit extends Component {
                     <input type= "text" />
                     <input type='submit' value='Change Description' />
                 </form> */}
+                <button onClick={(event) => this.cancelEdit(event)}>Cancel</button>
             </div>
         )
     }

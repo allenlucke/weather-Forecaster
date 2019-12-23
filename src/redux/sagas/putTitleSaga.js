@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { put, takeLatest, call } from 'redux-saga/effects';
-import getDetailsSaga from './getDetailsSaga';
 
 function* putTitle(action) {
     console.log(`In putTitleSaga`);
