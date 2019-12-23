@@ -1,6 +1,6 @@
 const putTitleReducer = (state = [], action) => {
     switch (action.type) {
-        case 'PUT_TITLE':
+        case 'SET_TITLE':
             return action.payload;
         default:
             return state;
