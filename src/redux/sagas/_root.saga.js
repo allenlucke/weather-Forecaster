@@ -4,6 +4,7 @@ import { takeEvery, put } from 'redux-saga/effects';
 import getHomePageSaga from './getHomePageSaga';
 import getDetailsSaga from './getDetailsSaga';
 import putTitleSaga from './putTitleSaga';
+import putDescriptionSaga from './putDescriptionSaga';
 
 //Watcher saga
 function* rootSaga() {
@@ -14,6 +15,7 @@ function* rootSaga() {
             getHomePageSaga(),
             getDetailsSaga(),
             putTitleSaga(),
+            putDescriptionSaga(),
         ]
     );
 }

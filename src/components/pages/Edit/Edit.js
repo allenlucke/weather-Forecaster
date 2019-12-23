@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import mapStoreToProps from '../../../redux/mapStoreToProps';
 
 const mapStateToProps = reduxState => ({
     reduxState,
@@ -14,7 +13,15 @@ class Edit extends Component {
     }
     
     handleTitleChange = (event, inputKey) => {
-        console.log('Title changed')
+        console.log('change happens')
+        console.log(this.state);
+        this.setState({
+            ...this.state,
+            [inputKey]: event.target.value
+        }); 
+    }
+    handleDescriptionChange = (event, inputKey) => {
+        console.log('change happens')
         console.log(this.state);
         this.setState({
             ...this.state,
@@ -26,6 +33,19 @@ class Edit extends Component {
         event.preventDefault();
         this.props.dispatch({
             type: 'PUT_TITLE',
+            payload: this.state
+        })
+        this.props.dispatch({
+            type: 'GET_DETAILS',
+            payload: this.state.id
+        })
+        this.props.history.push('/details/')
+    }
+    editDescription = (event, inputKey) => {
+        event.preventDefault();
+        console.log(this.state)
+        this.props.dispatch({
+            type: 'PUT_DESCRIPTION',
             payload: this.state
         })
         this.props.dispatch({
@@ -50,10 +70,12 @@ class Edit extends Component {
                      onChange={(event) => this.handleTitleChange(event, 'title')}/>
                     <input type='submit' value='Change Title' />
                 </form>
-                {/* <form onSubmit>
-                    <input type= "text" />
+                <form onSubmit={this.editDescription}>
+                    <textarea type= 'text'
+                    onChange={(event) => this.handleDescriptionChange(event, 'description')}>
+                    </textarea>
                     <input type='submit' value='Change Description' />
-                </form> */}
+                </form>
                 <button onClick={(event) => this.cancelEdit(event)}>Cancel</button>
             </div>
         )
