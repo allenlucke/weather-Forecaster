@@ -1,10 +1,10 @@
-const putDetailsReducer = (state = [], action) => {
+const putTitleReducer = (state = [], action) => {
     switch (action.type) {
-        case 'EDIT_DETAILS':
+        case 'PUT_TITLE':
             return action.payload;
         default:
             return state;
     }
 };
 
-export default putDetailsReducer;
+export default putTitleReducer;

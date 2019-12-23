@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
-import getHomePageReducer from './getHomePage.reducer'
-import getDetailsReducer from './getDetails.reducer'
-import putDetailsReducer from './putDetails.reducer'
+import getHomePageReducer from './getHomePage.reducer';
+import getDetailsReducer from './getDetails.reducer';
+import editDetailsReducer from './editDetails.reducer';
+import putTitleReducer from './putTitle.reducer';
 
 const rootReducer = combineReducers({
     getHomePageReducer,
     getDetailsReducer,
-    putDetailsReducer,
+    editDetailsReducer,
+    putTitleReducer,
 })
 
 export default rootReducer;
