@@ -6,7 +6,7 @@ function* getHomePage() {
     try {
         const response = yield axios({
             method: 'GET',
-            url: '/movies'
+            url: '/getMovies'
         });
         yield put({
             type: 'SET_HOMEPAGE',

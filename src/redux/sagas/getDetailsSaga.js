@@ -7,7 +7,7 @@ function* getDetails(action) {
     try {
         const response = yield axios({
             method: 'GET',
-            url: '/movies/details/' + action.payload,
+            url: '/getMovies/details/' + action.payload,
         });
         yield put({
             type: 'SET_DETAILS',

@@ -7,6 +7,7 @@ import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import HomePage from './../pages/HomePage/HomePage';
 import Details from './../pages/Details/Details';
+import Edit from './../pages/Edit/Edit';
 
 class App extends Component {
   // Renders the entire app on the DOM
@@ -17,6 +18,7 @@ class App extends Component {
         <h1>Movie Sagas</h1>
         <Route path="/" exact component={HomePage} />
         <Route path='/details/' component={Details} />
+        <Route path='/edit/' component={Edit} />
       </div>
       </Router>
     );

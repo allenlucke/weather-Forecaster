@@ -21,9 +21,7 @@ class HomePage extends Component {
             type: 'GET_DETAILS',
             payload: id
         })
-        // this.props.history.push(`/details/${id}`)
-        this.props.history.push('/details/')
-        
+        this.props.history.push('/details/') 
     }
 
     render() {
@@ -32,7 +30,6 @@ class HomePage extends Component {
                 <div key={index}
                     onClick={(event) => this.goToDetails(item.id)}
                 >
-                    
                     <img src={item.poster} alt="Poster"/>
                     <h2>{item.title}</h2>
                     <p>{item.description}</p>

@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const movies = require('../server/routes/movies.router.js')
+const getMovies = require('./routes/getMovies.router')
+const putMovies = require('./routes/putMovies.router')
 const port = process.env.PORT || 5000;
 
 /** ---------- MIDDLEWARE ---------- **/
@@ -10,7 +11,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('build'));
 
 /** ---------- ROUTES ---------- **/
-app.use('/movies', movies);
+app.use('/getMovies', getMovies);
+app.use('/putMovies', putMovies);
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {
