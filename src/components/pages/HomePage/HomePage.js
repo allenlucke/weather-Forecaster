@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Router } from 'react-router-dom';
-import Details from './../Details/Details';
-
 
 const mapStateToProps = reduxState => ({
     reduxState,

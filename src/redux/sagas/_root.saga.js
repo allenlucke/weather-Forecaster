@@ -1,5 +1,5 @@
 import { all } from 'redux-saga/effects';
-import { takeEvery, put } from 'redux-saga/effects';
+import { takeEvery} from 'redux-saga/effects';
 //Imported sagas
 import getHomePageSaga from './getHomePageSaga';
 import getDetailsSaga from './getDetailsSaga';

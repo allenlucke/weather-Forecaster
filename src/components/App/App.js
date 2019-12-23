@@ -4,7 +4,7 @@ import './App.css';
 // import {connect} from 'react-redux';
 // import mapStoreToProps from '../../redux/mapStoreToProps';
 //React-Router
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import HomePage from './../pages/HomePage/HomePage';
 import Details from './../pages/Details/Details';
 import Edit from './../pages/Edit/Edit';
