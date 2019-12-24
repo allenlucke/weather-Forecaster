@@ -29,7 +29,7 @@ class Details extends Component {
                 console.log(item.name)
             return(
                 <div key={index} >
-                    <h1>{item.title}</h1>
+                    <h2>{item.title}</h2>
                     <img src={item.poster} alt="Poster"/>
                     <p>{item.description}</p>
                     <Button variant="contained" color="secondary"
