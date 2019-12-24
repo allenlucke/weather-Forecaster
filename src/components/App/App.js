@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-//Redux
-// import {connect} from 'react-redux';
-// import mapStoreToProps from '../../redux/mapStoreToProps';
 //React-Router
 import { HashRouter as Router, Route } from 'react-router-dom';
 import HomePage from './../pages/HomePage/HomePage';

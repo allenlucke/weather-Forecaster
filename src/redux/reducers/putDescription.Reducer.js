@@ -1,3 +1,4 @@
+//Receives dispatch from putDescriptionSaga
 const putDescriptionReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_DESCRIPTION':

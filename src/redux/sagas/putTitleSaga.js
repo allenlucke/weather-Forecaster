@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { put, takeLatest} from 'redux-saga/effects';
-
+// Put call to server to edit title
 function* putTitle(action) {
     console.log(`In putTitleSaga`);
     console.log(action.payload)
@@ -10,18 +10,15 @@ function* putTitle(action) {
             url: '/putMovies/title/' + action.payload.id,
             data: action.payload
         });
-        // yield call(getDetailsSaga);
+        //Dispatches to putTitleReducer
         yield put({
             type: 'SET_TITLE',
             payload: action.payload.id,
-            // payload: response.data
         });
     } catch(err) {
         console.log('put title error', err);
     }
 }
-
-
 function* putTitleSaga() {
     yield takeLatest('PUT_TITLE', putTitle);
 }

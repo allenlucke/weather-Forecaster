@@ -7,19 +7,24 @@ const mapStateToProps = reduxState => ({
     reduxState,
 })
 class Details extends Component {
+    //Returns to homepage
     goToHomePage = (event) => {
         this.props.history.push('/')
     }
     goToEditPage = (id) => {
         console.log(id)
+        //Passes movie.id to editDetailsReducer
         this.props.dispatch({
             type: 'EDIT_DETAILS',
             payload: id
         })
+        //Navigates to Edit Page
         this.props.history.push('/edit/')
     }
     render() {
+        //Maps through individual movie to render title, description, and poster
         const movieTitle = this.props.reduxState.getDetailsReducer.map((item, index) => {
+            //Conditional to avoid redundancies of title, description, and poster
             if(index === 0) {
                 console.log(item.name)
             return(
@@ -34,6 +39,7 @@ class Details extends Component {
                 </div>
             )}
         })
+        //Maps through individual movie to render genres
         const detailList = this.props.reduxState.getDetailsReducer.map((item, index) => {
             return (
                 <div key={index} >

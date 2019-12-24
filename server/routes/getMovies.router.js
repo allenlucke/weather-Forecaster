@@ -15,10 +15,11 @@ router.get('/', (req,res) => {
     })
 })
 
-//New Get Details: movies' name, genres, and description for details page
+//GET Details: movies' name, genres, and description for details page
 router.get('/details/:id', (req, res) => {
     const movieId = req.params.id;
-    const queryString = `SELECT "genres".name, "movies".id, "movies".title, "movies".description, "movies".poster FROM "movies"
+    const queryString = `SELECT "genres".name, "movies".id, "movies".title,
+    "movies".description, "movies".poster FROM "movies"
     JOIN "movies_genres" ON "movies".id = "movies_genres".movies_id
     JOIN "genres" ON "movies_genres".genres_id = "genres".id
     WHERE "movies".id =${movieId};`;

@@ -7,35 +7,37 @@ import TextField from '@material-ui/core/TextField';
 const mapStateToProps = reduxState => ({
     reduxState,
 })
-
 class Edit extends Component {
     state= {
+        //Adds movie.id from editDetailsReducer to state
         id: this.props.reduxState.editDetailsReducer,
-        // title: '',
-        // description: '',
+        //title: '',
+        //description: '',
     }
-    
+    // Sets input fields as local state
     handleChange = (event, inputKey) => {
-        console.log('change happens')
         console.log(this.state);
         this.setState({
             ...this.state,
             [inputKey]: event.target.value
         }); 
     }
-    
+    // Dispatches new title to putTitleSaga
     editTitle = (event, inputKey) => {
         event.preventDefault();
         this.props.dispatch({
             type: 'PUT_TITLE',
             payload: this.state
         })
+        //Gets updated movie details from the server
         this.props.dispatch({
             type: 'GET_DETAILS',
             payload: this.state.id
         })
+        //Navigates back to details page
         this.props.history.push('/details/')
     }
+    // Dispatches new description to putDescriptionSaga
     editDescription = (event, inputKey) => {
         event.preventDefault();
         console.log(this.state)
@@ -43,12 +45,15 @@ class Edit extends Component {
             type: 'PUT_DESCRIPTION',
             payload: this.state
         })
+        //Gets updated movie details from the server
         this.props.dispatch({
             type: 'GET_DETAILS',
             payload: this.state.id
         })
+        //Navigates back to details page
         this.props.history.push('/details/')
     }
+    //Cancels the editing process and navigates back to the details page
     cancelEdit = (event) => {
         this.props.dispatch({
             type: 'GET_DETAILS',
@@ -57,7 +62,6 @@ class Edit extends Component {
         this.props.history.push('/details/')
     }        
     render () {
-
         return (
             <div>
                 <form onSubmit={this.editTitle}>
@@ -81,5 +85,4 @@ class Edit extends Component {
         )
     }
 }
-
 export default connect(mapStateToProps)(Edit);

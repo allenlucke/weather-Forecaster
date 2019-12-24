@@ -1,4 +1,5 @@
-// Used to store the movie details
+// Holds the details of a single movie
+// Details received from getDetailsSaga
 const getDetailsReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_DETAILS':

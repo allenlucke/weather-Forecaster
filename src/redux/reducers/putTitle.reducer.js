@@ -1,3 +1,4 @@
+//Receives dispatch from putDescriptionSaga
 const putTitleReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_TITLE':
@@ -6,5 +7,4 @@ const putTitleReducer = (state = [], action) => {
             return state;
     }
 };
-
 export default putTitleReducer;
