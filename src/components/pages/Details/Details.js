@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+//Material-UI
+import Button from '@material-ui/core/Button';
 
 const mapStateToProps = reduxState => ({
     reduxState,
@@ -23,8 +25,12 @@ class Details extends Component {
             return(
                 <div key={index} >
                     <h1>{item.title}</h1>
+                    <img src={item.poster} alt="Poster"/>
                     <p>{item.description}</p>
-                    <button onClick={(event) => this.goToEditPage(item.id)}>Edit</button>
+                    <Button variant="contained" color="secondary"
+                    onClick={(event) => this.goToEditPage(item.id)}>Edit</Button>
+                    <Button variant="contained" color="primary"
+                    onClick={this.goToHomePage}>Back to List</Button>
                 </div>
             )}
         })
@@ -42,7 +48,6 @@ class Details extends Component {
                     {movieTitle}
                     <h3>Genres</h3>
                     {detailList}
-                    <button onClick={this.goToHomePage}>Back to List</button>
             </div>
         );
     }

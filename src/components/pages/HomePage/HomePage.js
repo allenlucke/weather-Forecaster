@@ -25,6 +25,7 @@ class HomePage extends Component {
         const movieList = this.props.reduxState.getHomePageReducer.map((item, index) => {
             return (
                 <div key={index}
+                    className="clickable"
                     onClick={(event) => this.goToDetails(item.id)}
                 >
                     <img src={item.poster} alt="Poster"/>

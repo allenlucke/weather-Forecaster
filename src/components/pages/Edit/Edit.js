@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+//Material-UI
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 const mapStateToProps = reduxState => ({
     reduxState,
@@ -12,7 +15,7 @@ class Edit extends Component {
         // description: '',
     }
     
-    handleTitleChange = (event, inputKey) => {
+    handleChange = (event, inputKey) => {
         console.log('change happens')
         console.log(this.state);
         this.setState({
@@ -20,15 +23,7 @@ class Edit extends Component {
             [inputKey]: event.target.value
         }); 
     }
-    handleDescriptionChange = (event, inputKey) => {
-        console.log('change happens')
-        console.log(this.state);
-        this.setState({
-            ...this.state,
-            [inputKey]: event.target.value
-        }); 
-    }
-
+    
     editTitle = (event, inputKey) => {
         event.preventDefault();
         this.props.dispatch({
@@ -66,17 +61,20 @@ class Edit extends Component {
         return (
             <div>
                 <form onSubmit={this.editTitle}>
-                    <input type= 'text'
-                     onChange={(event) => this.handleTitleChange(event, 'title')}/>
-                    <input type='submit' value='Change Title' />
+                    <TextField type= 'text' id="movie-title" label="Edit Title Here" variant="filled" 
+                     onChange={(event) => this.handleChange(event, 'title')}></TextField>
+                    <Button type='submit' value='Change Title' 
+                     variant="contained" color="primary" >Save New Title</Button>
                 </form>
                 <form onSubmit={this.editDescription}>
-                    <textarea type= 'text'
-                    onChange={(event) => this.handleDescriptionChange(event, 'description')}>
-                    </textarea>
-                    <input type='submit' value='Change Description' />
+                    <TextField type= 'text' id="movie-description" label="Edit Description Here" variant="filled"
+                    onChange={(event) => this.handleChange(event, 'description')}>
+                    </TextField>
+                    <Button type='submit' value='Change Description'
+                     variant="contained" color="primary" >Save New Description</Button> 
                 </form>
-                <button onClick={(event) => this.cancelEdit(event)}>Cancel</button>
+                <Button onClick={(event) => this.cancelEdit(event)}
+                 variant="contained" color="secondary">Cancel</Button>
             </div>
         )
     }
