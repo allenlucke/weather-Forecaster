@@ -2,7 +2,6 @@
   text-align: center;
 }
 
-
 .App-header {
   background-color: #222;
   height: 150px;
@@ -22,13 +21,36 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-body{
-  background-color: grey;
+
+.textField{
+  background-color: whitesmoke;
 }
-ul{
-  text-align: left;
+body{
+  background-color: black;
+  font-family: fantasy;
+  color: gold;
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+
+li{
+  display: inline-block;
 }
 .clickable{
   cursor: pointer;
 }
-
+h1{
+  font-size: 2.5rem;
+}
+h2{
+  font-size: 1.9rem;
+}
+h3{
+  font-size: 1.6rem;
+}
+p{
+  font-size: 1.3rem;
+}
+Button {
+  height: 3.5rem;
+}

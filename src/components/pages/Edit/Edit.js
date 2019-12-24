@@ -61,13 +61,15 @@ class Edit extends Component {
         return (
             <div>
                 <form onSubmit={this.editTitle}>
-                    <TextField type= 'text' id="movie-title" label="Edit Title Here" variant="filled" 
+                    <TextField type= 'text' id="movie-title" label="Enter Title Here"
+                     variant="outlined" className="textField"
                      onChange={(event) => this.handleChange(event, 'title')}></TextField>
                     <Button type='submit' value='Change Title' 
                      variant="contained" color="primary" >Save New Title</Button>
                 </form>
                 <form onSubmit={this.editDescription}>
-                    <TextField type= 'text' id="movie-description" label="Edit Description Here" variant="filled"
+                    <TextField  type= 'text' id="movie-description" label="Enter Description Here" 
+                     variant="outlined" fullWidth className="textField"
                     onChange={(event) => this.handleChange(event, 'description')}>
                     </TextField>
                     <Button type='submit' value='Change Description'
