@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import mapStoreToProps from '../../redux/mapStoreToProps';
 import './App.css';
 //React-Router
 import { HashRouter as Router, Route } from 'react-router-dom';
-import HomePage from './../pages/HomePage/HomePage';
-import Details from './../pages/Details/Details';
-import Edit from './../pages/Edit/Edit';
+
 
 class App extends Component {
   // Renders the entire app on the DOM
+  componentDidMount() {
+    this.props.dispatch({
+        type: 'GET_FORECAST'
+    })
+  }
   render() {
+    const forecast = this.props.store.getForecastReducer
+    console.log(forecast)
     return (
       <Router>
       <div className="App">
-        <h1>Movie Sagas</h1>
-        <Route path="/" exact component={HomePage} />
-        <Route path='/details/' component={Details} />
-        <Route path='/edit/' component={Edit} />
+        <h1>Weather Forecast</h1>
       </div>
       </Router>
     );
   }
 }
-export default App;
+export default connect(mapStoreToProps)(App);
