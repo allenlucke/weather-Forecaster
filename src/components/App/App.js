@@ -5,7 +5,14 @@ import './App.css';
 import moment from 'moment';
 //React-Router
 import { HashRouter as Router, Route } from 'react-router-dom';
-
+//Material UI
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+// import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+// import './../../images/AW_RGB_Small';
 
 class App extends Component {
   // Renders the entire app on the DOM
@@ -17,15 +24,15 @@ class App extends Component {
   render() {
     const forecast = this.props.store.getForecastReducer.map((item, index) => {
       return(
-          <tbody key={index}>
-              <tr>
-                  <td>{moment(item.Date).format('LL')}</td>
-                  <td>{item.Temperature.Minimum.Value}{item.Temperature.Minimum.Unit}</td>
-                  <td>{item.Temperature.Maximum.Value}{item.Temperature.Maximum.Unit}</td>
-                  <td>{item.Day.PrecipitationIntensity}{item.Day.PrecipitationType}</td>
-                  <td>{item.Night.PrecipitationIntensity}{item.Night.PrecipitationType}</td>
-              </tr>
-          </tbody>
+          <TableBody key={index}>
+              <TableRow>
+                  <TableCell>{moment(item.Date).format('dddd')} {moment(item.Date).format('LL')}</TableCell>
+                  <TableCell>{item.Temperature.Minimum.Value} {item.Temperature.Minimum.Unit}</TableCell>
+                  <TableCell>{item.Temperature.Maximum.Value} {item.Temperature.Maximum.Unit}</TableCell>
+                  <TableCell>{item.Day.PrecipitationIntensity}{item.Day.PrecipitationType}</TableCell>
+                  <TableCell>{item.Night.PrecipitationIntensity}{item.Night.PrecipitationType}</TableCell>
+              </TableRow>
+          </TableBody>
       )
   })
     console.log(forecast)
@@ -34,19 +41,20 @@ class App extends Component {
       <div className="App">
         <h1>Weather Forecast</h1>
         <h2>Up-To-Date 5 Day Forecast in Kansas City</h2>
-          <table>
-              <thead>
-                  <tr>
-                      <th>Date</th>
-                      <th>Minimum Temperature</th>
-                      <th>MaximumTemperature</th>
-                      <th>Day</th>
-                      <th>Night</th>
-                  </tr>
-              </thead>
+          <Table>
+              <TableHead>
+                  <TableRow>
+                      <TableCell>Date</TableCell>
+                      <TableCell>Min Temp</TableCell>
+                      <TableCell>Max Temp</TableCell>
+                      <TableCell>Day</TableCell>
+                      <TableCell>Night</TableCell>
+                  </TableRow>
+              </TableHead>
                   {forecast}
-          </table>
+          </Table>
       </div>
+      {/* <img src="./../../images/AW_RGB_Small" alt="AccuWeather"/> */}
       </Router>
     );
   }

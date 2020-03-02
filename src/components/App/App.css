@@ -27,8 +27,8 @@
 }
 body{
   /* background-color: black; */
-  font-family: fantasy;
-  color: blue;
+  font: arial;
+  color: black;
   margin-left: 10rem;
   margin-right: 10rem;
 }
