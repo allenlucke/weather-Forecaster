@@ -4,7 +4,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import './App.css';
 import moment from 'moment';
 //React-Router
-import { HashRouter as Router, Route } from 'react-router-dom';
+// import { HashRouter as Router, Route } from 'react-router-dom';
 //Material UI
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -37,25 +37,30 @@ class App extends Component {
   })
     console.log(forecast)
     return (
-      <Router>
       <div className="App">
         <h1>Weather Forecast</h1>
         <h2>Up-To-Date 5 Day Forecast in Kansas City</h2>
           <Table>
-              <TableHead>
+              <TableHead className="tableHead">
                   <TableRow>
                       <TableCell>Date</TableCell>
                       <TableCell>Min Temp</TableCell>
                       <TableCell>Max Temp</TableCell>
-                      <TableCell>Day</TableCell>
-                      <TableCell>Night</TableCell>
+                      <TableCell>Daytime Precipitation</TableCell>
+                      <TableCell>Evening Precipitation</TableCell>
                   </TableRow>
               </TableHead>
                   {forecast}
           </Table>
+      
+        <div>
+          <img src="images/AW_RGB_Small.jpg" alt="AccuWeather"/>
+          
+        </div>
+        <div>
+          <a href='https://www.accuweather.com/'>Visit AccuWeather.com</a>
+        </div>
       </div>
-      {/* <img src="./../../images/AW_RGB_Small" alt="AccuWeather"/> */}
-      </Router>
     );
   }
 }

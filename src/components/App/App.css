@@ -26,7 +26,7 @@
   background-color: whitesmoke;
 }
 body{
-  /* background-color: black; */
+  background-image: url('./../../images/sky-1441936_1920.jpg');
   font: arial;
   color: black;
   margin-left: 10rem;
@@ -53,4 +53,7 @@ p{
 }
 Button {
   height: 3.5rem;
+}
+.tableHead {
+  font-size: 40px;
 }
