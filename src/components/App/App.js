@@ -18,7 +18,7 @@ class App extends Component {
   // Renders the entire app on the DOM
   componentDidMount() {
     this.props.dispatch({
-        type: 'GET_FORECAST'
+        type: 'GET_FORECAST_KC'
     })
   }
   render() {

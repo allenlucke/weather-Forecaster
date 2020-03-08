@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* getForecast() {
+function* getKCForecast() {
     console.log('In getForecast');
     const apikey = process.env.REACT_APP_API_KEY;
     try {
@@ -14,12 +14,12 @@ function* getForecast() {
             payload: response.data.DailyForecasts
         });
     } catch(err) {
-        console.log('error fetching forecast', err);
+        console.log('error fetching KC forecast', err);
     }
 }
 
-function* getForecastSaga() {
-    yield takeLatest('GET_FORECAST', getForecast)
+function* getKCForecastSaga() {
+    yield takeLatest('GET_FORECAST_KC', getKCForecast)
 }
 
-export default getForecastSaga;
+export default getKCForecastSaga;

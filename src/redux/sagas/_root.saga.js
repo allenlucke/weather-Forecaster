@@ -2,14 +2,16 @@ import { all } from 'redux-saga/effects';
 // import { takeEvery} from 'redux-saga/effects';
 
 //Imported sagas
-import getForecastSaga from './getForecastSaga';
+import getKCForecastSaga from './getKCForecast.saga';
+import getForecastByZipSaga from './getForecastByZip.saga'
 
 //Watcher saga
 function* rootSaga() {
     console.log(`I'm in the watcher saga`)
     yield all(
         [
-            getForecastSaga(),
+            getKCForecastSaga(),
+            getForecastByZipSaga(),
         ]
     );
 }
