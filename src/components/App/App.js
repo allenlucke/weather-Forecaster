@@ -51,8 +51,8 @@ class App extends Component {
                   <TableCell>{moment(item.Date).format('dddd')} {moment(item.Date).format('LL')}</TableCell>
                   <TableCell>{item.Temperature.Minimum.Value} {item.Temperature.Minimum.Unit}</TableCell>
                   <TableCell>{item.Temperature.Maximum.Value} {item.Temperature.Maximum.Unit}</TableCell>
-                  <TableCell>{item.Day.PrecipitationIntensity} {item.Day.PrecipitationType}</TableCell>
-                  <TableCell>{item.Night.PrecipitationIntensity} {item.Night.PrecipitationType}</TableCell>
+                  <TableCell>{item.Day.HasPrecipitation ? (item.Day.PrecipitationIntensity + ' ' + item.Day.PrecipitationType) : "No Precipitation"}</TableCell>
+                  <TableCell>{item.Night.HasPrecipitation ? (item.Night.PrecipitationIntensity + ' ' + item.Night.PrecipitationType) : "No Precipitation"}</TableCell>
               </TableRow>
           </TableBody>
       )
