@@ -82,14 +82,13 @@ class App extends Component {
               variant='outlined'
               size='small'
               type='number'
-              // className='inputs'
               label='Zip Code'
               value={this.state.zip}
               onChange={event => this.changeField(event, 'zip')}
               required
           />
           <Button
-          style={{ margin: '20px' }}
+          style={{ margin: '13px' }}
           variant='contained'
           color='primary'
           onClick={this.changeZip}
